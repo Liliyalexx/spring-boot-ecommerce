@@ -8,7 +8,15 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @CrossOrigin("http://localhost:4200")
-
 public interface ProductRepository extends JpaRepository<Product, Long> {
-    Page<Product> findByNameContaining(@RequestParam("name") String name, Pageable pageble);
+
+    Page<Product> findByCategoryId(@RequestParam("id") Long id, Pageable pageable);
+
+    Page<Product> findByNameContaining(@RequestParam("name") String name, Pageable pageable);
+
 }
+
+    // Behind the scense: SELECT * FROM Product p
+//    WHERE
+//    p.name LIKE CONCAT('%', :name , '%')
+
