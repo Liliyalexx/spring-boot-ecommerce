@@ -8,23 +8,19 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
-/**
- *
- */
 @Entity
-@Table(name = "product")
+@Table(name="product")
 @Data
 public class Product {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     @Column(name = "id")
     private Long id;
 
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
     private ProductCategory category;
-
 
     @Column(name = "sku")
     private String sku;
@@ -53,6 +49,5 @@ public class Product {
 
     @Column(name = "last_updated")
     @UpdateTimestamp
-    private Date lasUpdated;
-
+    private Date lastUpdated;
 }

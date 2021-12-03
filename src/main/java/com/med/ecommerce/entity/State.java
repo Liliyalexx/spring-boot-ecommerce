@@ -1,15 +1,12 @@
 package com.med.ecommerce.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name="state")
-@Getter
-@Setter
-
+@Data
 public class State {
 
     @Id
@@ -20,12 +17,11 @@ public class State {
     @Column(name="name")
     private String name;
 
-
     @ManyToOne
-
     @JoinColumn(name="country_id")
-
     private Country country;
 
-    //TODO: Set up one-to-many with states
 }
+
+
+

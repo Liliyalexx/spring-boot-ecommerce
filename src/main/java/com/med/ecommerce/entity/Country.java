@@ -11,7 +11,6 @@ import java.util.List;
 @Table(name="country")
 @Getter
 @Setter
-
 public class Country {
 
     @Id
@@ -25,12 +24,8 @@ public class Country {
     @Column(name="name")
     private String name;
 
-
-    //TODO: Set up one-to-many with states
-
     @OneToMany(mappedBy = "country")
     @JsonIgnore
     private List<State> states;
-
 
 }
